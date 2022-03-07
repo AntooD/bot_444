@@ -1,7 +1,15 @@
 const rwClient = require("./twitterClient.js")
 
 
-const pathToFile = "./media/test.mp4"
+    var  min = 1
+    var max = 3
+    function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) ) + min;
+    }
+
+    var song = getRndInteger(min, max)
+
+    const pathToFile = "./media/" + song + ".mp4"
 
 
 
