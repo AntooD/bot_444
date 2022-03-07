@@ -21,3 +21,12 @@ Modifier le fichier twitterClient.js avec vos clés d'API Twitter:
     accessSecret:"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
    
 Puis placer les vidéos à poster dans le fichier média et votre bot et fonctionnel.
+
+
+Télécharger la librairie "jsmediatags" :  `` npm install jsmediatags``
+
+Pour plus d'informations sur les différentes maintenance vous pouvez regarder : 
+https://antonindehu.com/bot-twitter-musical/
+
+Pour créer vos clés d'API Twitter : 
+https://developer.twitter.com/
