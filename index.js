@@ -1,5 +1,5 @@
 const rwClient = require("./twitterClient.js")
-
+var jsmediatags = require("jsmediatags");
 
     var  min = 1
     var max = 3
@@ -12,11 +12,24 @@ const rwClient = require("./twitterClient.js")
     const pathToFile = "./media/" + song + ".mp4"
 
 
+    var text_tweet = ""
+    jsmediatags.read( "./media/" + song + ".mp4", {
+        onSuccess: function(tag) {
+        var tags = tag.tags;
+        text_tweet = ("𝑻𝒊𝒕𝒓𝒆 : " + tags.title + " \n" + " \n" + "💿 : " + tags.genre  + " \n");
+        console.log(text_tweet);
+        },
+        onError: function(error) {
+        console.log(':(', error.type, error.info);
+        }
+    });
+
+
 
     const tweet = async () => {
     try {
         const mediaIdVideo = await rwClient.v1.uploadMedia(pathToFile, { mimetype: 'EUploadMimeType.Mp4' },{longvideo:'true'});
-        await rwClient.v1.tweet("Je tweet cette vidéo avec Javascript :", { media_ids: mediaIdVideo });
+        await rwClient.v1.tweet(text_tweet, { media_ids: mediaIdVideo });
 
             
     } catch (e) {
